@@ -1,0 +1,49 @@
+{% extends "layout_with_image.html" %}
+{% block content %}
+<div class="container" style="text-align: center;">
+    <h1>
+        You have chosen <span style="
+            background-color: {{dominant_color['hex']['value']}}; 
+            color: {{dominant_color['contrast']['value']}};
+            ">"{{dominant_color['name']['value']}}"</span> as dominante color &
+        <span style="
+            background-color: {{chose_color['hex']['value']}}; 
+            color: {{chose_color['contrast']['value']}};
+            ">"{{chose_color['name']['value']}}"</span> as pair color
+    </h1>
+    <h5>Please type fill below form and proceed with your favorite ecommerce site</h5>
+    <br>
+    <input type="search" class="form-control" id="search_input" aria-describedby="searchHelp"
+        placeholder="Type what you want here..." required>
+    <br>
+    {% for i in ['Pant', 'Shoe', 'Shirt'] %}
+    <span class="badge rounded-pill text-bg-dark" style="font-size: larger; cursor: pointer;"
+        onclick="search_input_auto_fill('{{i}}')">{{i}}</span>
+    {% endfor %}
+    <br>
+    <br>
+    <div class="row" style="justify-content: center;">
+        <div class="col-lg-3 choose_div"
+            onclick="nav_to_online_search('amazon', '{{dominant_color['name']['value']}}', '{{chose_color['name']['value']}}')">
+            <img src="{{url_for('static', filename='images/amazon.png')}}" alt="amazon">
+        </div>
+        <div class="col-lg-3 choose_div"
+            onclick="nav_to_online_search('flipkart', '{{dominant_color['name']['value']}}', '{{chose_color['name']['value']}}')">
+            <img src="{{url_for('static', filename='images/flipkart.png')}}" alt="flipkart">
+        </div>
+        <div class="col-lg-3 choose_div"
+            onclick="nav_to_online_search('myntra', '{{dominant_color['name']['value']}}', '{{chose_color['name']['value']}}')">
+            <img src="{{url_for('static', filename='images/myntra.png')}}" alt="myntra">
+        </div>
+        <div class="col-lg-3 choose_div"
+            onclick="nav_to_online_search('meesho', '{{dominant_color['name']['value']}}', '{{chose_color['name']['value']}}')">
+            <img src="{{url_for('static', filename='images/meesho.png')}}" alt="meesho">
+        </div>
+        <div class="col-lg-3 choose_div"
+            onclick="nav_to_online_search('ajio', '{{dominant_color['name']['value']}}', '{{chose_color['name']['value']}}')">
+            <img src="{{url_for('static', filename='images/ajio.png')}}" alt="ajio">
+        </div>
+    </div>
+    <br>
+</div>
+{% endblock %}

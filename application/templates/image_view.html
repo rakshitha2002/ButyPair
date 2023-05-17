@@ -1,0 +1,19 @@
+{% extends "layout_with_image.html" %}
+{% block content %}
+
+<div class="container" style="text-align: center;">
+    <h1>We found that above picture is having <span
+            style="background-color: {{color_details[0]['hex']['value']}}; color: {{color_details[0]['contrast']['value']}};">"{{color_details[0]['name']['value']}}"</span>
+        as dominant color
+    </h1>
+    <h5>(Or choose any one color from below)</h5><br>
+    <div class="row" style="justify-content: center;">
+        {% for i in color_details %}
+        <div class="col-lg-3 choose_div" style=" background-color: {{i['hex']['value']}};"
+        onclick="nav_to_dominant_color_route(this, '/{{image_id}}/{{i['hex']['clean']}}')">
+            <h4 style="color: {{i['contrast']['value']}};">{{i['name']['value']}}</h4>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

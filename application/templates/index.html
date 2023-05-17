@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="colored-background">
+    <div style="padding-left: 25px;padding-top: 20px;">
+        <h1 style="color: #FEFEDF; font-family: Satisfy; cursor: pointer;" onclick="window.location.href = '/'">
+            ButyPair</h1>
+    </div>
+    <center>
+        <div class="card card-style">
+            <img src="{{url_for('static', filename='images/icon.png')}}" alt="Icon" width="50px" height="50px"
+                style="place-self: center;">
+            <h3 style="padding-top: 15px;">Discover Your Ideal Beauty Collection with ButyPair</h3>
+            <p style="padding-left: 100px; padding-right: 100px; padding-top: 15px;">
+                ButyPair is an online tool that utilizes Python Flask and Machine Learning's KMean Clustering
+                Algorithm to help you discover your ideal beauty collection.
+            </p>
+            <form action="{{url_for('upload')}}" method="post" enctype="multipart/form-data">
+                <div class="drag_area" id="drag_area">
+                    <h3 id="drag_text">Drag & Drop / Click to upload image</h3>
+                    <input type="file" name="image_uploader" id="image_uploader" hidden>
+                    <img id="dropped_image" alt="Dropped Image" style="max-width: 100%;max-height: 100%;" hidden>
+                </div>
+                <br>
+                <button class="btn_style" type="submit" id="submit_btn" hidden>Submit</button>
+            </form>
+        </div>
+    </center>
+</div>
+{% endblock %}
